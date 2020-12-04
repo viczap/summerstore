@@ -1,4 +1,5 @@
 import './App.css';
+import NavBar from './components/NavBar' 
 import Button from 'react-bootstrap/Button';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
 
   return (
     <div>
+      <NavBar />
       <h1>Summer Store</h1>
       <p>This is my e-commerce!</p>
       <Button onClick={showMessageInConsole}>Show alert</Button>
