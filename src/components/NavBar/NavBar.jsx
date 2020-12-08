@@ -1,4 +1,5 @@
 import { Navbar, Nav } from 'react-bootstrap'
+import CartWidget from './../CartWidget/CartWidget'
 
 const NavBar = () => {
     return (
@@ -10,7 +11,8 @@ const NavBar = () => {
                 <Nav.Link href="/shoes">Calzado</Nav.Link>
                 <Nav.Link href="/accessories">Accesorios</Nav.Link>
             </Nav>
-        </Navbar>        
+            <CartWidget />
+        </Navbar>
     );
 } 
 
