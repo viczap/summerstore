@@ -1,0 +1,15 @@
+.product-item-count {
+    text-align: center;
+    margin: 20px 0 20px 0;
+    padding-left: 25px;
+    padding-right: 25px;
+    display: flex;
+}
+
+.product-item-count > span {
+    flex : 3;
+}
+
+.product-item-count > button {
+    flex : 1 ;
+}

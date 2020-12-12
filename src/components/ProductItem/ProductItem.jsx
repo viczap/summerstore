@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import ProductItemCount from '../ProductItemCount/ProductItemCount';
 
 const ProductItem = (props) => {
     return (
@@ -8,7 +9,8 @@ const ProductItem = (props) => {
             <Card.Body>
                 <Card.Title>{props.name}</Card.Title>
                 <Card.Text>{props.description}</Card.Text>
-                <Button variant="primary">Go to the product</Button>
+                <ProductItemCount stock={props.stock} />
+                <Button variant="primary" className="add-to-cart">Add to cart</Button>
             </Card.Body>
             <Card.Footer>
                 <small className="text-muted">Current stock: {props.stock}</small>

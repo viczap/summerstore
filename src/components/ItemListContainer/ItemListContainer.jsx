@@ -12,7 +12,13 @@ const ItemListContainer = (props) => {
     ];
 
     const getProductItems = () => {
-        return products.map(p => <ProductItem name={p.name} description={p.description} stock={p.stock} />)
+        return products.map(p => 
+            <ProductItem key={p.name} 
+            name={p.name} 
+            description={p.description} 
+            stock={p.stock} 
+            />
+        )
     }
     
     return (
