@@ -1,0 +1,12 @@
+.productDetail {
+    display: flex;
+    margin-top: 50px;
+}
+
+.image {
+    flex: 1;
+}
+
+.productInfo {
+    flex: 2;
+}
