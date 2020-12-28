@@ -1,6 +1,8 @@
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import ProductItemCount from '../ProductItemCount/ProductItemCount';
+import { Link } from 'react-router-dom';
+import './ProductItem.css'; 
 
 const ProductItem = ({product}) => {
     return (
@@ -12,6 +14,7 @@ const ProductItem = ({product}) => {
                 <Card.Text><strong>Price:</strong> ${product.price}</Card.Text>
                 <ProductItemCount stock={product.stock} />
                 <Button variant="primary" className="add-to-cart">Add to cart</Button>
+                <Link to={`/product/${product.id}`}>Check for details</Link>
             </Card.Body>
             <Card.Footer>
                 <small className="text-muted">Current stock: {product.stock}</small>

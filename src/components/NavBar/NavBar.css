@@ -1,0 +1,26 @@
+.navbar-brand {
+    margin-right: 4rem; 
+}
+
+a.brand {
+    text-decoration: none;
+    color: #BBBBBB;
+    font-variant: small-caps;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+a.brand:hover {
+    color: #DDDDDD;
+}
+
+.link {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-right: 2rem;
+}
+
+a.category {
+    font-variant: small-caps;
+    margin-right: 2rem;
+}

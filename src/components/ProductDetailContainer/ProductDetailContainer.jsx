@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react";
 import ProductDetail from "../ProductDetail/ProductDetail"
 import productsMock from "../../data/products.json";
+import { useParams } from "react-router-dom";
 
 const ProductDetailContainer = () => {
 
+    const {productId} = useParams();
+
     const [product, setProduct] = useState();
 
-    const getFirstProductFromDB = new Promise((resolve, reject) => {
+    const getProductsFromDB = new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(productsMock[0])
-        }, 2000);
+            resolve(productsMock)
+        }, 500);
     });
 
     useEffect(() => {
-        getFirstProductFromDB.then(product => {
-            console.log(product);
-            setProduct(product);
+        getProductsFromDB.then(products => {
+            setProduct(products.find(product => product.id === parseInt(productId)));
         });
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);

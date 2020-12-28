@@ -1,15 +1,20 @@
-import { Navbar, Nav } from 'react-bootstrap'
-import CartWidget from './../CartWidget/CartWidget'
+import { Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import CartWidget from './../CartWidget/CartWidget';
+import './NavBar.css';
+import categories from '../../data/categories.json';
 
 const NavBar = () => {
+
+    const categoryLinks = categories.map((category, index) => 
+        <Link className="nav-link link" key={index} to={category.link}>{category.text}</Link>
+    );
+
     return (
         <Navbar bg="dark" variant="dark">
-            <Navbar.Brand>SummerStore</Navbar.Brand>
+            <Navbar.Brand><Link to="/" className="brand">SummerStore</Link></Navbar.Brand>
             <Nav className="mr-auto">
-                <Nav.Link href="/men">Hombre</Nav.Link>
-                <Nav.Link href="/women">Mujer</Nav.Link>
-                <Nav.Link href="/shoes">Calzado</Nav.Link>
-                <Nav.Link href="/accessories">Accesorios</Nav.Link>
+                {categoryLinks}
             </Nav>
             <CartWidget />
         </Navbar>

@@ -5,21 +5,31 @@ import ProductItem from './../ProductItem/ProductItem';
 import './ProductItemList.css';
 
 import productsMock from '../../data/products.json';
+import { useParams } from 'react-router-dom';
 
 const ProductItemList = () => {
+
+    const {categoryId} = useParams();
 
     const [products, setProducts] = useState([]);
 
     const getProductsFromDB = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(productsMock)
-        }, 2000);
+        }, 500);
     });
 
     useEffect(() => {
-        getProductsFromDB.then(result => setProducts(result))
+        getProductsFromDB.then(result => {
+            let products = result;
+            if(categoryId) {
+                products = products.filter(
+                    product => product.categories.includes(categoryId.toUpperCase()))
+            }
+            setProducts(products);
+        })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [categoryId]);
 
 
     const getProductItems = () => {
