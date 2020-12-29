@@ -1,0 +1,18 @@
+.widget-cart {
+    height: 100vh;
+    width: 25%;
+    position: fixed;
+    transition: right 0.5s;
+    top: 0;
+    background-color: #EFEFEF;
+    z-index: 2;
+    padding: 1em;
+  }
+  
+  .close {
+    right: -30%;
+  }
+  
+  .open {
+    right: 0;
+  }
