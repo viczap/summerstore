@@ -17,4 +17,6 @@ Se agregó como dependencias:
 * **Font Awesome** para tener a disposición íconos como componentes React.
 * **React Router** para la navegación entre componentes sin recargar todo el sitio.
 
+### Como utilizar la app
 
+![Como utilizar la app](./using_summerstore.gif)
