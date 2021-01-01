@@ -1,7 +1,16 @@
 import { Button } from 'react-bootstrap';
 import './ProductDetail.css';
+import { useHistory } from 'react-router-dom';
 
 const ProductDetail = ({product}) => {
+
+    const history = useHistory();
+    const CART_URL = '/cart'; 
+
+    const handleAddToCartClick = e => {
+        history.push(CART_URL);
+    };
+
     return (
         <div className="productDetail">  
             <div className="image">
@@ -15,7 +24,7 @@ const ProductDetail = ({product}) => {
                 <div><strong>Price: </strong>$ {product.price}</div>
                 <div><strong>Stock: </strong>{product.stock} Units</div>
                 
-                <Button variant="primary">Add to Cart</Button>
+                <Button variant="primary" onClick={handleAddToCartClick}>Add to Cart</Button>
             </div>
         </div>
     ); 

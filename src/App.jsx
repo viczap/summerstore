@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ProductDetailContainer from './components/ProductDetailContainer/ProductDetailContainer';
+import Cart from './components/Cart/Cart';
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <ItemListContainer greeting="Featured products" />
+          </Route>
+          <Route exact path="/cart">
+            <Cart />
           </Route>
           <Route exact path="/category/:categoryId">
             <ItemListContainer greeting="Categorized products" />
