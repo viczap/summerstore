@@ -1,3 +1,28 @@
 .cart {
     margin-right: 10px;
 }
+
+.badge {
+    position: relative;
+    top: -12px;
+    left: -20px;
+}
+
+.widget-cart {
+    padding-left: 10px;
+}
+
+.cart-widget-title {
+    margin-bottom: 30px;
+    padding-left: 10px;
+}
+
+.cart-widget-items {
+    margin-bottom: 20px;
+}
+
+.cart-widget-item {
+   padding : 10px;
+   border-bottom: 1px solid black;
+   border-right: 1px solid black;
+}
