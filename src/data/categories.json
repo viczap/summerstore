@@ -1,13 +1,5 @@
 [
     {
-        "link" : "/category/men",
-        "text" : "Men"
-    },
-    {
-        "link" : "/category/women",
-        "text" : "Women"
-    },
-    {
         "link" : "/category/shoes",
         "text" : "Shoes"
     },

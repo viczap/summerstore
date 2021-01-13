@@ -2,32 +2,29 @@ import { useEffect, useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner'
 import CardDeck from 'react-bootstrap/CardDeck'
 import ProductItem from './../ProductItem/ProductItem'; 
-import './ProductItemList.css';
-
-import productsMock from '../../data/products.json';
 import { useParams } from 'react-router-dom';
+import { getFireStore } from '../../db';
+import './ProductItemList.css';
 
 const ProductItemList = () => {
 
     const {categoryId} = useParams();
-
     const [products, setProducts] = useState([]);
 
-    const getProductsFromDB = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(productsMock)
-        }, 500);
-    });
-
     useEffect(() => {
-        getProductsFromDB.then(result => {
-            let products = result;
-            if(categoryId) {
-                products = products.filter(
-                    product => product.categories.includes(categoryId.toUpperCase()))
-            }
-            setProducts(products);
+        const db = getFireStore();
+        
+        console.log(categoryId);
+        const query = !categoryId ? 
+            db.collection('products').get() :
+            db.collection('products').where('category', '==', categoryId.toUpperCase()).get()
+        
+        query.then(result => {
+            setProducts(result.docs.map(doc => {
+                 return {'id' : doc.id, ...doc.data()};
+            }));
         })
+        .catch(e => console.log(e));
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [categoryId]);
 

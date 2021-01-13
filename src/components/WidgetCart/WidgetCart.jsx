@@ -12,7 +12,7 @@ const WidgetCart = ({ show, closeClickHandler }) => {
             <div className="cart-widget-items">
                 {items.map((item) => {
                     return (
-                        <div className="cart-widget-item">
+                        <div key={item.product.id} className="cart-widget-item">
                             <strong>{item.product.title}</strong>
                             <div>{item.product.description.substring(0, 20)}...</div>
                             <div><strong>Quantity:</strong>&nbsp;{item.quantity}</div>
