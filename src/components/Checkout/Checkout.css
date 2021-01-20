@@ -1,0 +1,50 @@
+.checkout {
+    width: 75%;
+    margin: 30px auto;
+}
+
+.checkout h2 {
+    padding: 5px 0;
+    border-bottom: 1px solid #AAA;
+    margin-bottom: 20px;
+    font-variant: small-caps;
+    font-weight: 600;
+}
+
+.checkout h4 {
+    padding: 5px;
+    border-bottom: 1px solid #AAA;
+    background-color: #EFEFEF;
+    margin-bottom: 20px;
+    font-variant: small-caps;
+    font-weight: 600;
+}
+
+.checkout-form {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-form label {
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.checkout-form label:first-child {
+    margin-top: 0px;
+}
+
+.checkout-form input[type="submit"] {
+    margin-top: 50px;
+    background-color: #333B3F;
+    color: #DDDDDD;
+    font-variant: small-caps;
+    font-weight: 600;
+    padding: 10px;
+    border: none;
+}
+
+.checkout-form input[type="submit"]:hover {
+    opacity: 0.95;
+}

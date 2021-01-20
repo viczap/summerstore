@@ -43,6 +43,7 @@ const Cart = () => {
                 <div>
                     <strong>Total:&nbsp;${cartContext.totalPrice()}</strong>
                 </div>
+                <Link to="/checkout">Checkout</Link>
             </div>
         );
     };

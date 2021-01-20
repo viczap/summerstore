@@ -29,12 +29,12 @@ const CartContextProvider = ({ children }) => {
         if (index !== -1) {
             const _items = [...data.items];
             _items.splice(index, 1);
-            setData({...data, items : _items});
+            setData({ ...data, items: _items });
         }
     };
 
     const clear = () => {
-        data.items = [];
+        setData({ ...data, items: [] });
     };
 
     const isInCart = (itemId) => {
@@ -44,20 +44,33 @@ const CartContextProvider = ({ children }) => {
     };
 
     const cartQuantity = () => {
-        return data.items.reduce((acc, item) => acc + item.quantity, 0)
+        return data.items.reduce((acc, item) => acc + item.quantity, 0);
     };
 
     const totalPrice = () => {
-        return data.items.reduce((acc, item) => acc + (item.quantity * item.product.price), 0)
-    }
+        return data.items.reduce(
+            (acc, item) => acc + item.quantity * item.product.price,
+            0
+        );
+    };
 
     const isEmpty = () => {
         return data.items.length === 0;
-    }
+    };
 
     return (
         <CartContext.Provider
-            value={{ data, setData, addItem, removeItem, clear, isInCart, cartQuantity, totalPrice, isEmpty }}
+            value={{
+                data,
+                setData,
+                addItem,
+                removeItem,
+                clear,
+                isInCart,
+                cartQuantity,
+                totalPrice,
+                isEmpty,
+            }}
         >
             {children}
         </CartContext.Provider>

@@ -15,3 +15,5 @@ const app = firebase.initializeApp(firebaseConfig);
 export const getFirebase = () => app;
 
 export const getFireStore = () => firebase.firestore(app);
+
+export const fb = firebase;
