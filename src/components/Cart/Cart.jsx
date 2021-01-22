@@ -1,23 +1,36 @@
-import { Button } from "react-bootstrap";
 import { useContext } from "react";
 import { CartContext } from "./../../context/CartContext";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import "./Cart.css";
 
 const Cart = () => {
     const cartContext = useContext(CartContext);
     const items = cartContext.data.items;
+    const history = useHistory();
 
     const removeItemHandler = (id) => {
         cartContext.removeItem(id);
     };
 
+    const goToCheckoutHandler = () => {
+        history.push("/checkout");
+    };
+
+    const goToShoppingHandler = () => {
+        history.push("/");
+    };
+
     const showProducts = () => {
         return (
-            <div className="cart-widget-items">
+            <div className="cart-items">
                 {items.map((item) => {
                     return (
-                        <div key={item.product.id} className="cart-widget-item">
-                            <strong>{item.product.title}</strong>
+                        <div key={item.product.id} className="cart-item">
+                            <div className="cart-item-image">
+                                <img src={item.product.pictureUrl} alt={item.product.title} />
+                            </div>
+                            <div className="cart-item-description">
+                            <div className="title">{item.product.title}</div>
                             <div>
                                 {item.product.description.substring(0, 100)}...
                             </div>
@@ -30,38 +43,48 @@ const Cart = () => {
                                     {item.quantity * item.product.price}
                                 </strong>
                             </div>
-                            <Button
+                            <button
+                                className="remove-button"
                                 onClick={() =>
                                     removeItemHandler(item.product.id)
                                 }
                             >
                                 Remove Item
-                            </Button>
+                            </button>
+                            </div>
                         </div>
                     );
                 })}
                 <div>
                     <strong>Total:&nbsp;${cartContext.totalPrice()}</strong>
                 </div>
-                <Link to="/checkout">Checkout</Link>
+                <button
+                        className="checkout-button"
+                        onClick={goToCheckoutHandler}
+                    >
+                        Go to Checkout!
+                    </button>
             </div>
         );
     };
 
     return (
-        <>
+        <div className="cart-container">
             <h2>My Cart</h2>
             {items.length ? (
                 showProducts()
             ) : (
                 <>
                     <p>Your cart is empty.</p>
-                    <div>
-                        <Link to="/">Go to shopping</Link>
-                    </div>
+                    <button
+                        className="checkout-button"
+                        onClick={goToShoppingHandler}
+                    >
+                        Go to Shopping!
+                    </button>
                 </>
             )}
-        </>
+        </div>
     );
 };
 
