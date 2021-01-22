@@ -1,36 +1,70 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import "./WidgetCart.css";
-
+    
 const WidgetCart = ({ show, closeClickHandler }) => {
     const cartContext = useContext(CartContext);
     const items = cartContext.data.items;
+    const history = useHistory();
 
     const showProducts = () => {
         return (
-            <div className="cart-widget-items">
-                {items.map((item) => {
-                    return (
-                        <div key={item.product.id} className="cart-widget-item">
-                            <strong>{item.product.title}</strong>
-                            <div>{item.product.description.substring(0, 20)}...</div>
-                            <div><strong>Quantity:</strong>&nbsp;{item.quantity}</div>
-                            <div><strong>Subtotal:&nbsp;${item.quantity * item.product.price}</strong></div>
-                        </div>
-                    );
-                })}
-            </div>
+            <>
+                <div className="cart-widget-items">
+                    {items.map((item) => {
+                        return (
+                            <div
+                                key={item.product.id}
+                                className="cart-widget-item"
+                            >
+                                <strong className="title">
+                                    {item.product.title}
+                                </strong>
+                                <div className="description">
+                                    {item.product.description.substring(0, 45)}
+                                    ...
+                                </div>
+                                <div className="quantity-price">
+                                    <strong>{item.quantity}</strong> unit(s) x{" "}
+                                    <strong>${item.product.price}</strong>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </>
         );
+    };
+
+    const goToCartHandler = () => {
+        closeClickHandler();
+        history.push("/cart");
     };
 
     return (
         <div className={`widget-cart ${show ? "open" : "close"}`}>
-            <h2 className="cart-widget-title">My Cart</h2>
-            {items.length !== 0 ? showProducts() : <p>The cart is empty.</p>}
-            <div><strong>Total:&nbsp;${cartContext.totalPrice()}</strong></div>
-            <div><Link to="/cart">Go to cart</Link></div>
-            <button onClick={closeClickHandler}>Close cart</button>
+            <div class="widget-cart-header">
+                <h2 className="cart-widget-title">My Cart</h2>
+                <button className="close-button" onClick={closeClickHandler}>
+                    X
+                </button>
+            </div>
+
+            {items.length !== 0 ? (
+                <>{showProducts()}</>
+            ) : (
+                <p>The cart is empty.</p>
+            )}
+
+            <div className={`cart-widget-footer ${show ? "open" : "close"}`}>
+                <div className="total-price">
+                    <strong>Total:&nbsp;${cartContext.totalPrice()}</strong>
+                </div>
+                <button class="go-to-cart-button" onClick={goToCartHandler}>
+                    Go to Cart
+                </button>
+            </div>
         </div>
     );
 };
