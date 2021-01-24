@@ -1,10 +1,9 @@
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import ProductItemCount from "../ProductItemCount/ProductItemCount";
 import { Link } from "react-router-dom";
-import "./ProductItem.css";
 import { useState, useContext } from "react";
-import { CartContext } from './../../context/CartContext'; 
+import { CartContext } from "./../../context/CartContext";
+import "./ProductItem.css";
 
 const ProductItem = ({ product }) => {
     const [count, setCount] = useState(1);
@@ -27,44 +26,35 @@ const ProductItem = ({ product }) => {
     };
 
     const addToCartHandler = (e) => {
-        console.log(`Adding to the cart: [product=${product.id}, count=${count}]`);
+        console.log(
+            `Adding to the cart: [product=${product.id}, count=${count}]`
+        );
         cartContext.addItem(product, count);
     };
 
     return (
-        <Card style={{ width: "18rem" }}>
+        <Card>
             <Card.Img variant="top" src={product.pictureUrl} />
             <Card.Body>
-                <Card.Title>{product.title}</Card.Title>
+                <Link
+                    className="card-product-title"
+                    to={`/product/${product.id}`}
+                >
+                    {product.title}
+                </Link>
                 <Card.Text>{product.description}</Card.Text>
-                <Card.Text>
-                    <strong>Price:</strong> ${product.price}
-                </Card.Text>
+                <div className="price">${product.price}</div>
                 <ProductItemCount
+                    otherStyles="text-centered"
                     count={count}
                     onAdd={() => onAdd(product.stock)}
                     onRemove={() => onRemove(product.stock)}
                 />
-                <Button
-                    variant="primary"
-                    className="add-to-cart"
-                    onClick={addToCartHandler}>
+                <button className="add-to-cart" onClick={addToCartHandler}>
                     Add to cart
-                </Button>
-                <div>
-                    <Link
-                        className="check-product-details"
-                        to={`/product/${product.id}`}
-                    >
-                        Check for details
-                    </Link>
-                </div>
+                </button>
+                <div></div>
             </Card.Body>
-            <Card.Footer>
-                <small className="text-muted">
-                    Current stock: {product.stock}
-                </small>
-            </Card.Footer>
         </Card>
     );
 };

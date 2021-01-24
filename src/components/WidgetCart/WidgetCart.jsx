@@ -44,7 +44,7 @@ const WidgetCart = ({ show, closeClickHandler }) => {
 
     return (
         <div className={`widget-cart ${show ? "open" : "close"}`}>
-            <div class="widget-cart-header">
+            <div className="widget-cart-header">
                 <h2 className="cart-widget-title">My Cart</h2>
                 <button className="close-button" onClick={closeClickHandler}>
                     X
@@ -61,7 +61,7 @@ const WidgetCart = ({ show, closeClickHandler }) => {
                 <div className="total-price">
                     <strong>Total:&nbsp;${cartContext.totalPrice()}</strong>
                 </div>
-                <button class="go-to-cart-button" onClick={goToCartHandler}>
+                <button className="go-to-cart-button" onClick={goToCartHandler}>
                     Go to Cart
                 </button>
             </div>
