@@ -1,12 +1,11 @@
-import Button from 'react-bootstrap/Button';
 import './ProductItemCount.css';
 
 const ProductItemCount = ({count, onAdd, onRemove}) => {
     return (
         <div className="product-item-count">
-            <Button variant="outline-info" size="sm" onClick={onRemove} disabled={count > 1 ? false : true}>-</Button>
+            <button onClick={onRemove} disabled={count > 1 ? false : true}>-</button>
             <span>{count}</span>
-            <Button variant="outline-info" size="sm" onClick={onAdd}>+</Button>
+            <button onClick={onAdd}>+</button>
         </div>
     );
 };

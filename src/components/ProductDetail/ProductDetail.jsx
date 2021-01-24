@@ -1,4 +1,3 @@
-import { Button } from 'react-bootstrap';
 import './ProductDetail.css';
 import { useHistory } from 'react-router-dom';
 import ProductItemCount from '../ProductItemCount/ProductItemCount';
@@ -35,7 +34,7 @@ const ProductDetail = ({product}) => {
     };
 
     return (
-        <div className="productDetail">  
+        <div className="product-detail">  
             <div className="image">
                 <img alt="product" src={product.pictureUrl} />
             </div>
@@ -53,7 +52,7 @@ const ProductDetail = ({product}) => {
                     onRemove={() => onRemove(product.stock)}
                 />
                 
-                <Button variant="primary" onClick={addToCartHandler}>Add to Cart</Button>
+                <button className="add-to-cart-button" onClick={addToCartHandler}>Add to Cart</button>
             </div>
         </div>
     ); 

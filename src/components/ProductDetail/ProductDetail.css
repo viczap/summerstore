@@ -1,12 +1,33 @@
-.productDetail {
+.product-detail {
     display: flex;
     margin-top: 50px;
+    padding: 40px;
+    border: #888;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 0 #0000001a;
 }
 
 .image {
     flex: 1;
+    text-align: center;
+}
+
+.image img {
+    min-width: 300px;
 }
 
 .productInfo {
     flex: 2;
+    padding-left: 40px;
+}
+
+.add-to-cart-button {
+    background-color: #333B3F;
+    color: #DDDDDD;
+    font-variant: small-caps;
+    font-weight: 600;
+    padding: 10px;
+    border: none;
+    width: 75%;
 }
