@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { getFireStore , fb } from "../../db";
+import { getFireStore, fb } from "../../db";
+import ErrorMessage from "../General/ErrorMessage";
 import "./Checkout.css";
 
 const Checkout = () => {
@@ -13,13 +14,14 @@ const Checkout = () => {
             firstName: "",
             lastName: "",
             email: "",
+            confirmEmail: "",
             phone: "",
-            date : null
         };
     };
 
     const [userData, setUserData] = useState(getEmptyUserData());
     const [orderId, setOrderId] = useState();
+    const [errorMessage, setErrorMessage] = useState();
 
     const getOrderDetails = (items) => {
         return items.map((item) => {
@@ -31,8 +33,19 @@ const Checkout = () => {
         });
     };
 
+    const closeHandler = () => {
+        setErrorMessage("");
+    };
+
     const onSubmitHandler = (e) => {
         e.preventDefault();
+        
+        setErrorMessage("");
+        if (userData.email !== userData.confirmEmail) {
+            const message = "The emails entered are not equals.";
+            setErrorMessage(message);
+            return;
+        }
 
         db.collection("orders")
             .add({
@@ -60,6 +73,9 @@ const Checkout = () => {
     return (
         <div className="checkout">
             <h2>Checkout</h2>
+
+            <ErrorMessage message={errorMessage} closeHandler={closeHandler} />
+
             {items.length ? (
                 <>
                     <h4>Your order detail</h4>
@@ -105,6 +121,16 @@ const Checkout = () => {
                             required
                         />
 
+                        <label htmlFor="confirmEmail">Confirm Email</label>
+                        <input
+                            type="email"
+                            name="confirmEmail"
+                            id="confirmEmail"
+                            value={userData.confirmEmail}
+                            onChange={onChangeInputHandler}
+                            required
+                        />
+
                         <label htmlFor="phone">Phone</label>
                         <input
                             type="text"
@@ -114,7 +140,11 @@ const Checkout = () => {
                             onChange={onChangeInputHandler}
                             required
                         />
-                        <input type="submit" value="Submit" />
+                        <input
+                            type="submit"
+                            value="Submit"
+                            disabled={Object.values(userData).includes("")}
+                        />
                     </form>
                 </>
             ) : orderId ? (

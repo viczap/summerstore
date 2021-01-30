@@ -55,8 +55,8 @@ const Cart = () => {
                         </div>
                     );
                 })}
-                <div>
-                    <strong>Total:&nbsp;${cartContext.totalPrice()}</strong>
+                <div className="cart-total-price">
+                    Total:&nbsp;${cartContext.totalPrice()}
                 </div>
                 <button
                         className="checkout-button"

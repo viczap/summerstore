@@ -63,3 +63,8 @@
     width: 350px;
     margin-top: 20px;
 }
+
+.cart-total-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+}

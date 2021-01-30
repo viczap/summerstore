@@ -48,3 +48,7 @@
 .checkout-form input[type="submit"]:hover {
     opacity: 0.95;
 }
+
+.checkout-form input[type="submit"]:disabled {
+    opacity: 0.5;
+}
