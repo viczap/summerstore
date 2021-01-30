@@ -53,6 +53,7 @@ const Checkout = () => {
                 totalPrice: cartContext.totalPrice(),
                 date: fb.firestore.Timestamp.fromDate(new Date()),
                 orderDetail: getOrderDetails(items),
+                status: 'GENERATED' 
             })
             .then((savedOrder) => {
                 console.log(savedOrder);
