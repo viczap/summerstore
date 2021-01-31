@@ -19,7 +19,7 @@ Se agregó como dependencias:
 
 ### Como utilizar la app
 
-![Como utilizar la app](./using_summerstore.gif)
+![Como utilizar la app](./summerstore_final.gif)
 
 ### Probala online!
 https://summerstore.vercel.app/
