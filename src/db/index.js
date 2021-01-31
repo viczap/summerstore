@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "@firebase/firestore"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAPxPo6yOvxc3FBSH4W5DbvwSozZz_qX4I",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "summerstore-94f3d.firebaseapp.com",
     projectId: "summerstore-94f3d",
     storageBucket: "summerstore-94f3d.appspot.com",
