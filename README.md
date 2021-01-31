@@ -21,5 +21,5 @@ Se agregó como dependencias:
 
 ![Como utilizar la app](./using_summerstore.gif)
 
-### Probala online!
+### Probala online!
 https://summerstore.vercel.app/
