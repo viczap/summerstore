@@ -36,7 +36,7 @@ const ProductDetail = ({product}) => {
     return (
         <div className="product-detail">  
             <div className="image">
-                <img alt="product" src={product.pictureUrl} />
+                <img alt="product" src={`/products/${product.pictureUrl}`} />
             </div>
             <div className="productInfo">
                 <h2>{product.title}</h2>
