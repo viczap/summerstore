@@ -8,10 +8,6 @@
         "text" : "Kids"
     },
     {
-        "link" : "/category/clothes",
-        "text" : "Clothes"
-    },
-    {
         "link" : "/category/accessories",
         "text" : "Accessories"
     }

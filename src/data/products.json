@@ -38,5 +38,77 @@
         "price": 1614,
         "pictureUrl" : "cheeky-8526.jpg",
         "stock" : 10
+    },
+    {
+        "title": "GAP",
+        "description" : "Buzo Gris GAP",
+        "category" : "KIDS",
+        "price": 4318,
+        "pictureUrl" : "gap-6309.jpg",
+        "stock" : 10
+    },
+    {
+        "title": "Carter's",
+        "description" : "Set Carter's Bodys y Pantalón \"Unicornio\"",
+        "category" : "KIDS",
+        "price": 2507,
+        "pictureUrl" : "carter-s-9516.jpg",
+        "stock" : 10
+    },
+    {
+        "title": "Carter's",
+        "description" : "Set Carter's Body, Remera y Pantalón \"Perritos\"",
+        "category" : "KIDS",
+        "price": 2507,
+        "pictureUrl" : "carter-s-9153.jpg",
+        "stock" : 10
+    },
+    {
+        "title": "GAP",
+        "description" : "Campera Azul GAP",
+        "category" : "KIDS",
+        "price": 4954,
+        "pictureUrl" : "gap-8759.jpg",
+        "stock" : 10
+    },
+    {
+        "title": "Puma",
+        "description" : "Mochila Rosa Core Up Minime",
+        "category" : "ACCESSORIES",
+        "price": 2639,
+        "pictureUrl" : "puma-4271.jpg",
+        "stock" : 10
+    },
+    {
+        "title": "Montagne",
+        "description" : "Mochila Celeste Montagne Freeway",
+        "category" : "ACCESSORIES",
+        "price": 2429,
+        "pictureUrl" : "montagne-0434.jpg",
+        "stock" : 10
+    },
+    {
+        "title": "Adidas Originals",
+        "description" : "Mochila Negra Adidas Originals Graphic",
+        "category" : "ACCESSORIES",
+        "price": 3589,
+        "pictureUrl" : "adidasoriginals-6944.jpg",
+        "stock" : 10
+    },
+    {
+        "title": "Zom",
+        "description" : "Mochila Roja Zom",
+        "category" : "ACCESSORIES",
+        "price": 3649,
+        "pictureUrl" : "zom-0676.jpg",
+        "stock" : 10
+    },
+    {
+        "title": "Reef",
+        "description" : "Mochila Negra Reef 17\"",
+        "category" : "ACCESSORIES",
+        "price": 2290,
+        "pictureUrl" : "gap-8586.jpg",
+        "stock" : 10
     }
 ]

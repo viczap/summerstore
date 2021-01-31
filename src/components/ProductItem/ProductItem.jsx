@@ -42,7 +42,7 @@ const ProductItem = ({ product }) => {
                 >
                     {product.title}
                 </Link>
-                <Card.Text>{product.description}</Card.Text>
+                <Card.Text>{`${product.description.substring(0, 30)}...`}</Card.Text>
                 <div className="price">${product.price}</div>
                 <ProductItemCount
                     otherStyles="text-centered"
